@@ -6,6 +6,7 @@ const pinoLogger = require('./logger');
 
 const connectToDatabase = require('./models/db');
 const {loadData} = require("./util/import-mongo/index");
+const giftRoutes = require('./routes/giftRoutes');
 
 
 const app = express();
@@ -20,6 +21,7 @@ connectToDatabase().then(() => {
 
 
 app.use(express.json());
+app.use('/api/gifts', giftRoutes);
 
 // Route files
 // Gift API Task 1: import the giftRoutes and store in a constant called giftroutes
